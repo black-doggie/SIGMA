@@ -47,10 +47,10 @@ expand: 2                       # (int) Block expansion factor
 #filter_inter_by_user_or_item: True    # (bool) Whether or not to filter inter by user or item.
 
 #dataset: amazon-beauty
-dataset: Amazon_Video_Games
+dataset: ml-1m
 #dataset: Amazon_Sports_and_Outdoors
 #dataset: Amazon_Fashion
-MAX_ITEM_LIST_LENGTH: 50
+MAX_ITEM_LIST_LENGTH: 200
 field_separator: "\t"
 seq_separator: " " 
 USER_ID_FIELD: user_id 
@@ -64,8 +64,8 @@ LABEL_FIELD: label #指定标签
 ITEM_LIST_LENGTH_FIELD: item_length #指定序列长度域
 LIST_SUFFIX: _list #指定序列前缀
 POSITION_FIELD: position_id #指定生成的序列位置id
-user_inter_num_interval: "[5,200)" # 5-200 for sports  2-inf for fashion 5-inf for beauty
-item_inter_num_interval: "[5,200)"
+user_inter_num_interval: "[5,inf)"
+item_inter_num_interval: "[5,inf)"
 
 
 

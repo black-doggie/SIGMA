@@ -153,7 +153,9 @@ class GMambaBlock(nn.Module):
         h1 = self.dense1(input_tensor)
         g1 = self.conv1d(input_tensor.transpose(1, 2))
         g1 = g1.transpose(1, 2)
-        gru_input = self.conv1d(g1) 
+        g1 = g1.transpose(1, 2).contiguous()
+        gru_input = self.conv1d(g1)
+        gru_input = gru_input.transpose(1, 2).contiguous() 
     
         # [2048, n, 64] 再进行反转
         flipped_input = input_tensor.clone() #torch.Size([2048, 50, 64])
@@ -180,7 +182,7 @@ class GMambaBlock(nn.Module):
         mamba_output = mamba_output * h1 + mamba_output
         mamba_output_f = mamba_output_f * h2 +  mamba_output_f 
         
-        gru_output, _ = self.gru(g1)
+        gru_output, _ = self.gru(g1.transpose(1, 2).contiguous())
     
         combined_states = (
           self.combining_weights[2] * mamba_output +

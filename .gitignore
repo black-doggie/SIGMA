@@ -1,0 +1,7 @@
+
+# ignore datasets
+/dataset/
+
+# ignore checkpoints/logs
+*.pth
+*.log
