@@ -5,3 +5,22 @@
 # ignore checkpoints/logs
 *.pth
 *.log
+
+# ---- datasets (project) ----
+/dataset/
+/model/dataset/
+/dataset/**
+
+# ---- training outputs ----
+/model/log/
+/model/log_tensorboard/
+/saved/
+/**/*.pth
+/**/*.log
+
+# ---- python cache ----
+__pycache__/
+*.pyc
+
+# ---- backups ----
+*.bak_*
